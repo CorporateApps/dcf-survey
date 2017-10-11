@@ -1,35 +1,17 @@
 {
   "pages": [
     {
+      "name": "Infrastructure",
       "elements": [
         {
           "type": "html",
-          "html": "<h4>Identity</h4>",
-          "name": "Identity"
+          "name": "Identity",
+          "html": "<h4>Identity</h4>"
         },
         {
           "type": "dropdown",
-          "choices": [
-            {
-              "value": "none",
-              "text": "None"
-            },
-            {
-              "value": "2008r2",
-              "text": "2008R2"
-            },
-            "2012",
-            {
-              "value": "2012r2",
-              "text": "2012R2"
-            },
-            "2016"
-          ],
           "name": "adfunctionallevel",
-          "title": "Current Active Directory Functional Level"
-        },
-        {
-          "type": "dropdown",
+          "title": "Current Active Directory Functional Level",
           "choices": [
             {
               "value": "none",
@@ -45,29 +27,35 @@
               "text": "2012R2"
             },
             "2016"
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "adforestfunctionallevel",
+          "visibleIf": "{adfunctionallevel} <> 'none'",
           "title": "Current Active Directory Forest Functional Level",
-          "visibleIf": "{adfunctionallevel} <> 'none'"
+          "choices": [
+            {
+              "value": "none",
+              "text": "None"
+            },
+            {
+              "value": "2008r2",
+              "text": "2008R2"
+            },
+            "2012",
+            {
+              "value": "2012r2",
+              "text": "2012R2"
+            },
+            "2016"
+          ]
         },
         {
           "type": "dropdown",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ],
           "name": "existingca",
+          "visibleIf": "{adfunctionallevel} <> 'none'",
           "title": "Existing Certificate Authority",
-          "visibleIf": "{adfunctionallevel} <> 'none'"
-        },
-        {
-          "type": "dropdown",
           "choices": [
             {
               "value": "yes",
@@ -77,13 +65,13 @@
               "value": "no",
               "text": "No"
             }
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "existingadconnect",
+          "visibleIf": "{adfunctionallevel} <> 'none'",
           "title": "Existing AD Connect",
-          "visibleIf": "{adfunctionallevel} <> 'none'"
-        },
-        {
-          "type": "dropdown",
           "choices": [
             {
               "value": "yes",
@@ -93,13 +81,13 @@
               "value": "no",
               "text": "No"
             }
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "existingadfs",
+          "visibleIf": "{adfunctionallevel} <> 'none'",
           "title": "Existing ADFS Infrastructure",
-          "visibleIf": "{adfunctionallevel} <> 'none'"
-        },
-        {
-          "type": "dropdown",
           "choices": [
             {
               "value": "yes",
@@ -109,17 +97,32 @@
               "value": "no",
               "text": "No"
             }
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "existingazuread",
-          "title": "Existing Azure Active Directory"
+          "title": "Existing Azure Active Directory",
+          "choices": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
         },
         {
           "type": "html",
-          "html": "<br />\n<h4>Exchange</h4>",
-          "name": "question1"
+          "name": "question1",
+          "html": "<br />\n<h4>Exchange</h4>"
         },
         {
           "type": "dropdown",
+          "name": "exchangeinstallationtype",
+          "title": "Exchange Installation Type",
           "choices": [
             {
               "value": "cloud",
@@ -129,30 +132,30 @@
               "value": "onprem",
               "text": "On-premise"
             }
-          ],
-          "name": "exchangeinstallationtype",
-          "title": "Exchange Installation Type"
+          ]
         },
         {
           "type": "dropdown",
+          "name": "exchangeonpremversion",
+          "visible": false,
+          "visibleIf": "{exchangeinstallationtype} = 'onprem'",
+          "title": "Exchange On-premise Version",
           "choices": [
             "2007",
             "2010",
             "2013",
             "2016"
-          ],
-          "name": "exchangeonpremversion",
-          "title": "Exchange On-premise Version",
-          "visible": false,
-          "visibleIf": "{exchangeinstallationtype} = 'onprem'"
+          ]
         },
         {
           "type": "html",
-          "html": "<br />\n<h4>Web Services</h4>",
-          "name": "question2"
+          "name": "question2",
+          "html": "<br />\n<h4>Web Services</h4>"
         },
         {
           "type": "dropdown",
+          "name": "existingo365",
+          "title": "Existing Office 365 subscription",
           "choices": [
             {
               "value": "none",
@@ -174,31 +177,12 @@
               "value": "e5",
               "text": "E5"
             }
-          ],
-          "name": "existingo365",
-          "title": "Existing Office 365 subscription"
+          ]
         },
         {
           "type": "dropdown",
-          "choices": [
-            {
-              "value": "none",
-              "text": "None"
-            },
-            {
-              "value": "e3",
-              "text": "E3"
-            },
-            {
-              "value": "e5",
-              "text": "E5"
-            }
-          ],
           "name": "existingems",
-          "title": "Existing EM+S subscription"
-        },
-        {
-          "type": "dropdown",
+          "title": "Existing EM+S subscription",
           "choices": [
             {
               "value": "none",
@@ -212,24 +196,41 @@
               "value": "e5",
               "text": "E5"
             }
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "existingms365",
-          "title": "Existing EM+S subscription"
+          "title": "Existing EM+S subscription",
+          "choices": [
+            {
+              "value": "none",
+              "text": "None"
+            },
+            {
+              "value": "e3",
+              "text": "E3"
+            },
+            {
+              "value": "e5",
+              "text": "E5"
+            }
+          ]
         },
         {
           "type": "text",
           "name": "thirdpartycloudservices",
           "title": "Other Third Party Cloud Services in use"
         }
-      ],
-      "name": "Infrastructure"
+      ]
     },
     {
+      "name": "Device Management",
       "elements": [
         {
           "type": "html",
-          "html": "<h4>Software</h4>",
-          "name": "question3"
+          "name": "question3",
+          "html": "<h4>Device Characteristics</h4>"
         },
         {
           "type": "text",
@@ -252,36 +253,18 @@
           "title": "Estimated number of Windows 10 Desktop devices"
         },
         {
-          "type": "html",
-          "html": "<br />\n<h4>Hardware</h4>",
-          "name": "question4"
-        },
-        {
           "type": "text",
           "name": "androidvendors",
-          "title": "Android Device Vendor(s)",
           "visible": false,
-          "visibleIf": "{androiddevices} > 0"
+          "visibleIf": "{androiddevices} > 0",
+          "title": "Android Device Vendor(s)"
         },
         {
           "type": "dropdown",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ],
           "name": "appledeprequired",
-          "title": "Apple DEP support required",
           "visible": false,
-          "visibleIf": "{iosdevices} > 0"
-        },
-        {
-          "type": "dropdown",
+          "visibleIf": "{iosdevices} > 0",
+          "title": "Apple DEP support required",
           "choices": [
             {
               "value": "yes",
@@ -291,34 +274,34 @@
               "value": "no",
               "text": "No"
             }
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "autopilotrequired",
-          "title": "Microsoft Autopilot support required",
           "visible": false,
-          "visibleIf": "{win10mobiles} > 0 or {win10desktops} > 0"
+          "visibleIf": "{win10mobiles} > 0 or {win10desktops} > 0",
+          "title": "Microsoft Autopilot support required",
+          "choices": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
         },
         {
           "type": "html",
-          "html": "<br />\n<h4>Device Enrollment Strategies</h4>",
-          "name": "question5"
+          "name": "question5",
+          "html": "<br />\n<h4>Device Enrollment Strategies</h4>"
         },
         {
           "type": "dropdown",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ],
           "name": "enrollbyod",
-          "title": "Bring your Own Device"
-        },
-        {
-          "type": "dropdown",
+          "title": "Bring your Own Device",
           "choices": [
             {
               "value": "yes",
@@ -328,12 +311,12 @@
               "value": "no",
               "text": "No"
             }
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "enrollcope",
-          "title": "Corporate Owned, Personally Enabled"
-        },
-        {
-          "type": "dropdown",
+          "title": "Corporate Owned, Personally Enabled",
           "choices": [
             {
               "value": "yes",
@@ -343,12 +326,24 @@
               "value": "no",
               "text": "No"
             }
-          ],
+          ]
+        },
+        {
+          "type": "dropdown",
           "name": "enrollcosu",
-          "title": "Corporate Owned, Single Use"
+          "title": "Corporate Owned, Single Use",
+          "choices": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
         }
-      ],
-      "name": "Device Management"
+      ]
     }
   ]
 }
