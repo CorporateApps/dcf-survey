@@ -1,349 +1,771 @@
 {
   "pages": [
-    {
-      "name": "Infrastructure",
+   {
+    "elements": [
+     {
+      "type": "html",
+      "html": "<h4>Identity</h4>",
+      "name": "Identity"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "none",
+        "text": "None"
+       },
+       {
+        "value": "2008r2",
+        "text": "2008R2"
+       },
+       "2012",
+       {
+        "value": "2012r2",
+        "text": "2012R2"
+       },
+       "2016"
+      ],
+      "name": "adfunctionallevel",
+      "title": "Current Active Directory Functional Level"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "none",
+        "text": "None"
+       },
+       {
+        "value": "2008r2",
+        "text": "2008R2"
+       },
+       "2012",
+       {
+        "value": "2012r2",
+        "text": "2012R2"
+       },
+       "2016"
+      ],
+      "name": "adforestfunctionallevel",
+      "title": "Current Active Directory Forest Functional Level",
+      "visibleIf": "{adfunctionallevel} <> 'none'"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "existingca",
+      "title": "Existing Certificate Authority",
+      "visibleIf": "{adfunctionallevel} <> 'none'"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "existingadconnect",
+      "title": "Existing AD Connect",
+      "visibleIf": "{adfunctionallevel} <> 'none'"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "existingadfs",
+      "title": "Existing ADFS Infrastructure",
+      "visibleIf": "{adfunctionallevel} <> 'none'"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "existingazuread",
+      "title": "Existing Azure Active Directory"
+     }
+    ],
+    "name": "Infrastructure"
+   },
+   {
+    "elements": [
+     {
+      "type": "html",
+      "html": "<br />\n<h4>Exchange</h4>",
+      "name": "question1"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "cloud",
+        "text": "Cloud"
+       },
+       {
+        "value": "onprem",
+        "text": "On-premise"
+       }
+      ],
+      "name": "exchangeinstallationtype",
+      "title": "Exchange Installation Type"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       "2007",
+       "2010",
+       "2013",
+       "2016"
+      ],
+      "name": "exchangeonpremversion",
+      "title": "Exchange On-premise Version",
+      "visible": false,
+      "visibleIf": "{exchangeinstallationtype} = 'onprem'"
+     },
+     {
+      "type": "html",
+      "html": "<br />\n<h4>Web Services</h4>",
+      "name": "question2"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "none",
+        "text": "None"
+       },
+       {
+        "value": "proplus",
+        "text": "ProPlus"
+       },
+       {
+        "value": "e1",
+        "text": "E1"
+       },
+       {
+        "value": "e3",
+        "text": "E3"
+       },
+       {
+        "value": "e5",
+        "text": "E5"
+       }
+      ],
+      "name": "existingo365",
+      "title": "Existing Office 365 subscription"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "none",
+        "text": "None"
+       },
+       {
+        "value": "e3",
+        "text": "E3"
+       },
+       {
+        "value": "e5",
+        "text": "E5"
+       }
+      ],
+      "name": "existingems",
+      "title": "Existing EM+S subscription"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "none",
+        "text": "None"
+       },
+       {
+        "value": "e3",
+        "text": "E3"
+       },
+       {
+        "value": "e5",
+        "text": "E5"
+       }
+      ],
+      "name": "existingms365",
+      "title": "Existing Microsoft 365 subscription"
+     },
+     {
+      "type": "text",
+      "name": "thirdpartycloudservices",
+      "title": "Other Third Party Cloud Services in use"
+     }
+    ],
+    "name": "Exchange & Web Services"
+   },
+   {
+    "elements": [
+     {
+      "type": "html",
+      "html": "<h4>Device Characteristics</h4>",
+      "name": "question3"
+     },
+     {
+      "type": "text",
+      "name": "androiddevices",
+      "title": "Estimated number of Android devices"
+     },
+     {
+      "type": "text",
+      "name": "iosdevices",
+      "title": "Estimated number of iOS devices"
+     },
+     {
+      "type": "text",
+      "name": "win10mobiles",
+      "title": "Estimated number of Windows 10 Phone devices"
+     },
+     {
+      "type": "text",
+      "name": "win10desktops",
+      "title": "Estimated number of Windows 10 Desktop devices"
+     },
+     {
+      "type": "text",
+      "name": "androidvendors",
+      "title": "Android Device Vendor(s)",
+      "visible": false,
+      "visibleIf": "{androiddevices} > 0"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "appledeprequired",
+      "title": "Apple DEP support required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "autopilotrequired",
+      "title": "Microsoft Autopilot support required",
+      "visible": false,
+      "visibleIf": "{win10mobiles} > 0 or {win10desktops} > 0"
+     },
+     {
+      "type": "html",
+      "html": "<br />\n<h4>Device Enrollment Strategies</h4>",
+      "name": "question5"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "enrollbyod",
+      "title": "Bring your Own Device"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "enrollcope",
+      "title": "Corporate Owned, Personally Enabled"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "enrollcosu",
+      "title": "Corporate Owned, Single Use"
+     }
+    ],
+    "name": "Device Management"
+   },
+   {
+    "elements": [
+     {
+      "type": "html",
+      "html": "<h4>Application Management</h4>",
+      "name": "appmanagement"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "applevpprequired",
+      "title": "Apple VPP required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "internalapps",
+      "title": "Internally developed apps required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "apptunneling",
+      "title": "Tunneling to on-premise resources required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     },
+     {
+      "type": "html",
+      "html": "\n<br />\n<h4>Content Management</h4>",
+      "name": "question4"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "sharepointonpremintegration",
+      "title": "Sharepoint on-premise integration required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "sharepointonlineintegration",
+      "title": "Sharepoint Online integration required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "onedriveintegration",
+      "title": "Onedrive for Business integration required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "conditionalaccess",
+      "title": "Conditional Access required",
+      "visible": false,
+      "visibleIf": "{iosdevices} > 0"
+     }
+    ],
+    "name": "Apps & Content"
+   },
+   {
+    "elements": [
+     {
+      "type": "html",
+      "html": "<h4>Email Management</h4>",
+      "name": "question6"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "emailintegration",
+      "title": "Email integration required"
+     },
+     {
+      "type": "html",
+      "html": "<br />\n<h4>Azure Information Protection</h4>",
+      "name": "question8"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "aiprequired",
+      "title": "Azure Information Protection required"
+     },
+     {
+      "type": "text",
+      "name": "existingrmi",
+      "title": "Existing Rights Management Infrastructure in use"
+     },
+     {
+      "type": "html",
+      "html": "<br />\n<h4>Advanced Threat Analytics</h4>",
+      "name": "question9"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "atarequired",
+      "title": "Advanced Threat Analytics required"
+     },
+     {
+      "type": "text",
+      "inputType": "number",
+      "name": "numberofdcs",
+      "title": "Number of Domain Controllers used"
+     },
+     {
+      "type": "html",
+      "html": "<br />\n<h4>Cloud App Security</h4>",
+      "name": "question10"
+     },
+     {
+      "type": "dropdown",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "cloudappsecurityrequired",
+      "title": "Cloud App Security required"
+     },
+     {
+      "type": "html",
+      "name": "question7"
+     }
+    ],
+    "name": "Optional Services"
+   },
+   {
+    "elements": [
+     {
+      "type": "comment",
+      "name": "securityconcerns",
+      "rows": 6,
+      "title": "Can you list the security concerns that must be addressed by the solution, password policy, data loss prevention, encryption..."
+     },
+     {
+      "type": "comment",
+      "name": "existingmdm",
+      "rows": 6,
+      "title": "Do you have any (mobile) device management solutions in use at this time?"
+     },
+     {
+      "type": "comment",
+      "name": "remarks",
+      "rows": 6,
+      "title": "Any other remarks or questions?"
+     }
+    ],
+    "name": "Functional Requirements"
+   },
+   {
+    "elements": [
+     {
+      "type": "html",
+      "html": "<h2>Customer Preparations List</h2>",
+      "name": "question15"
+     },
+     {
+      "type": "panel",
       "elements": [
-        {
-          "type": "html",
-          "name": "Identity",
-          "html": "<h4>Identity</h4>"
-        },
-        {
-          "type": "dropdown",
-          "name": "adfunctionallevel",
-          "title": "Current Active Directory Functional Level",
-          "choices": [
-            {
-              "value": "none",
-              "text": "None"
-            },
-            {
-              "value": "2008r2",
-              "text": "2008R2"
-            },
-            "2012",
-            {
-              "value": "2012r2",
-              "text": "2012R2"
-            },
-            "2016"
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "adforestfunctionallevel",
-          "visibleIf": "{adfunctionallevel} <> 'none'",
-          "title": "Current Active Directory Forest Functional Level",
-          "choices": [
-            {
-              "value": "none",
-              "text": "None"
-            },
-            {
-              "value": "2008r2",
-              "text": "2008R2"
-            },
-            "2012",
-            {
-              "value": "2012r2",
-              "text": "2012R2"
-            },
-            "2016"
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "existingca",
-          "visibleIf": "{adfunctionallevel} <> 'none'",
-          "title": "Existing Certificate Authority",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "existingadconnect",
-          "visibleIf": "{adfunctionallevel} <> 'none'",
-          "title": "Existing AD Connect",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "existingadfs",
-          "visibleIf": "{adfunctionallevel} <> 'none'",
-          "title": "Existing ADFS Infrastructure",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "existingazuread",
-          "title": "Existing Azure Active Directory",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "html",
-          "name": "question1",
-          "html": "<br />\n<h4>Exchange</h4>"
-        },
-        {
-          "type": "dropdown",
-          "name": "exchangeinstallationtype",
-          "title": "Exchange Installation Type",
-          "choices": [
-            {
-              "value": "cloud",
-              "text": "Cloud"
-            },
-            {
-              "value": "onprem",
-              "text": "On-premise"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "exchangeonpremversion",
-          "visible": false,
-          "visibleIf": "{exchangeinstallationtype} = 'onprem'",
-          "title": "Exchange On-premise Version",
-          "choices": [
-            "2007",
-            "2010",
-            "2013",
-            "2016"
-          ]
-        },
-        {
-          "type": "html",
-          "name": "question2",
-          "html": "<br />\n<h4>Web Services</h4>"
-        },
-        {
-          "type": "dropdown",
-          "name": "existingo365",
-          "title": "Existing Office 365 subscription",
-          "choices": [
-            {
-              "value": "none",
-              "text": "None"
-            },
-            {
-              "value": "proplus",
-              "text": "ProPlus"
-            },
-            {
-              "value": "e1",
-              "text": "E1"
-            },
-            {
-              "value": "e3",
-              "text": "E3"
-            },
-            {
-              "value": "e5",
-              "text": "E5"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "existingems",
-          "title": "Existing EM+S subscription",
-          "choices": [
-            {
-              "value": "none",
-              "text": "None"
-            },
-            {
-              "value": "e3",
-              "text": "E3"
-            },
-            {
-              "value": "e5",
-              "text": "E5"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "existingms365",
-          "title": "Existing EM+S subscription",
-          "choices": [
-            {
-              "value": "none",
-              "text": "None"
-            },
-            {
-              "value": "e3",
-              "text": "E3"
-            },
-            {
-              "value": "e5",
-              "text": "E5"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "name": "thirdpartycloudservices",
-          "title": "Other Third Party Cloud Services in use"
-        }
-      ]
-    },
-    {
-      "name": "Device Management",
+       {
+        "type": "html",
+        "html": "<ul>\n<li>Provide Global Admin Credentials for Azure AD and Office 365</li>\n<li>Provide Apple ID for APN certificate</li>\n<li>Provide test user account</li>\n</ul>",
+        "name": "question12"
+       }
+      ],
+      "name": "panel2",
+      "title": "Azure Portal Intune Configuration"
+     },
+     {
+      "type": "panel",
       "elements": [
-        {
-          "type": "html",
-          "name": "question3",
-          "html": "<h4>Device Characteristics</h4>"
-        },
-        {
-          "type": "text",
-          "name": "androiddevices",
-          "title": "Estimated number of Android devices"
-        },
-        {
-          "type": "text",
-          "name": "iosdevices",
-          "title": "Estimated number of iOS devices"
-        },
-        {
-          "type": "text",
-          "name": "win10mobiles",
-          "title": "Estimated number of Windows 10 Phone devices"
-        },
-        {
-          "type": "text",
-          "name": "win10desktops",
-          "title": "Estimated number of Windows 10 Desktop devices"
-        },
-        {
-          "type": "text",
-          "name": "androidvendors",
-          "visible": false,
-          "visibleIf": "{androiddevices} > 0",
-          "title": "Android Device Vendor(s)"
-        },
-        {
-          "type": "dropdown",
-          "name": "appledeprequired",
-          "visible": false,
-          "visibleIf": "{iosdevices} > 0",
-          "title": "Apple DEP support required",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "autopilotrequired",
-          "visible": false,
-          "visibleIf": "{win10mobiles} > 0 or {win10desktops} > 0",
-          "title": "Microsoft Autopilot support required",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "html",
-          "name": "question5",
-          "html": "<br />\n<h4>Device Enrollment Strategies</h4>"
-        },
-        {
-          "type": "dropdown",
-          "name": "enrollbyod",
-          "title": "Bring your Own Device",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "enrollcope",
-          "title": "Corporate Owned, Personally Enabled",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "enrollcosu",
-          "title": "Corporate Owned, Single Use",
-          "choices": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        }
-      ]
-    }
+       {
+        "type": "html",
+        "html": "<ul>\n<li>Prepare on-premise Active Directory</li>\n<li>Add Custom Domain(s) to Azure AD</li>\n<li>Provide a server for AD Connect</li>\n<li>Configure software prerequisites for AD connect</li>\n<li>Provide on-premise AD enterprise administrator account credentials</li>\n<li>Decide on the desired sign-in method</li>\n<li>Open firewall ports for AD Connect</li>\n<li>List objects to sync from on-premise AD to Azure AD</li>\n</ul>\n",
+        "name": "general"
+       }
+      ],
+      "name": "adconnect",
+      "title": "Installing AD Connect",
+      "visible": false,
+      "visibleIf": "{{adfunctionallevel} <> 'none' and {existingadconnect} = 'no'}"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>Prepare a virtual server for the Exchange Connector</li>\n<li>Create an Active Directory service account for the Exchange Connector</li>\n<li>Give the Active Directory service account permissions to execute Exchange CmdLets</li>\n</ul>",
+        "name": "question13"
+       }
+      ],
+      "name": "panel1",
+      "title": "Exchange Connector",
+      "visible": false,
+      "visibleIf": "{exchangeinstallationtype} = 'onprem' and {emailintegration} = 'yes'"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>Prepare a virtual server for the Application Proxy Connector</li>\n<li>Open the required firewall ports</li>\n<li>Provide a detailed list of applications to be published</li>\n<li>Provide outbound proxy details (if applicable)</li>\n<li>Setup internal apps for Kerberos authentication where desired</li>\n</ul>",
+        "name": "question11"
+       }
+      ],
+      "name": "appproxyconnector",
+      "title": "Azure Application Proxy Connector",
+      "visible": false,
+      "visibleIf": "{{internalapps} = 'yes' or {apptunneling} = 'yes'}"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>Provide Apple DEP account credentials</li>\n<li>Register devices in Apple DEP portal</li>\n</ul>",
+        "name": "question14"
+       }
+      ],
+      "name": "appledep",
+      "title": "Apple DEP",
+      "visible": false,
+      "visibleIf": "{appledeprequired} = 'yes'"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>provide VPP account credentials</li>\n<li>provide VPP token file</li>\n<li>obtain licenses for paid and free apps</li>\n</ul>",
+        "name": "question21"
+       }
+      ],
+      "name": "applevpp",
+      "title": "Apple VPP",
+      "visible": false,
+      "visibleIf": "{applevpprequired} = 'yes'"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>Provide hardware IDs of devices</li>\n</ul>",
+        "name": "question16"
+       }
+      ],
+      "name": "autopilot",
+      "title": "Microsoft Autopilot",
+      "visible": false,
+      "visibleIf": "{autopilotrequired} = 'yes'"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>Create MDM collection in SCCM (users allowed to register devices in Intune)</li>\n<li>Provide terms and conditions for MDM enrollment (if required)</li>\n<li>create DNS records for Windows enrollment (if not using Azure AD premium and/or Windows 8.1 or older)</li>\n<li>Provide Apple ID for APNs certificate</li>\n<li>Create additional SCCM collections as required for app/configuration deployment</li>\n</ul>",
+        "name": "question17"
+       }
+      ],
+      "name": "panel3",
+      "title": "SCCM Intune Connector"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>obtain AIP licenses (included in EM+S licenses)</li>\n<li>if non-default, provide agreed upon classification strategy</li>\n</ul>",
+        "name": "question18"
+       }
+      ],
+      "name": "aip",
+      "title": "Advanced Information Protection",
+      "visible": false,
+      "visibleIf": "{aiprequired} = 'yes'"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>obtain ATA license from Microsoft Volume Licensing Service Center</li>\n<li>Use ATA sizing tool to plan for ATA Center capacity</li>\n<li>provide high level topology of AD server infrastructure (# of servers, hardware sizing and geographical location)</li>\n<li>provide user account with read access to all objects in AD (entire forest)</li>\n<li>set up a VM for ATA Center (see sizing tool for HW prereqs)</li>\n<li>open required firewall ports for ATA Center</li>\n<li>request certificate from internal PKI for ATA Center</li>\n</ul>\n<br />\n<strong>OPTIONAL</strong><br />\n<ul>\n<li>set up a VM for ATA Gateway (see sizing tool for HW prerequisites)</li>\n<li>open required firewall ports for ATA Gateway</li>\n<li>open required firewall ports for ATA Lightweight Gateway</li>\n</ul>",
+        "name": "question19"
+       }
+      ],
+      "name": "ata",
+      "title": "Advanced Threat Analytics",
+      "visible": false,
+      "visibleIf": "{atarequired} = 'yes'"
+     },
+     {
+      "type": "panel",
+      "elements": [
+       {
+        "type": "html",
+        "html": "<ul>\n<li>obtain CAS licenses (included in EM+S licenses)</li>\n<li>verify supported firewall types and proxies</li>\n<li>whitelist access to Cloud App Security Portal</li>\n<li>provide traffic log from firewall or proxy</li>\n<li>configure firewall to support continuous logging</li>\n<li>provide virtual machine to create Docker Log collector</li>\n</ul>",
+        "name": "question20"
+       }
+      ],
+      "name": "cloudappsecurity",
+      "title": "Cloud App Security",
+      "visible": false,
+      "visibleIf": "{cloudappsecurityrequired} = 'yes'"
+     }
+    ],
+    "name": "Customer Preparations"
+   }
   ]
-}
+ }

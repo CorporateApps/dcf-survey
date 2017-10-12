@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
-import SurveyEditor from './SurveyEditor';
+/*import SurveyEditor from './SurveyEditor';*/
 import logo from './proximus.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+
+function sendDataToServer(survey) {
+  var resultAsString = JSON.stringify(survey.data);
+  console.log(resultAsString); //send Ajax request to your web server.
+}
+
 class App extends Component {
 
   json = require('./questions.json');
@@ -20,7 +26,7 @@ class App extends Component {
           </div>
         <div className="surveyjs">
           {/*If you want to show survey, uncomment the line below*/}
-          <Survey.Survey model={model}/>
+          <Survey.Survey model={model} onComplete={sendDataToServer}/>
           {/*If you want to show survey editor, uncomment the line below*/}
           {/*<SurveyEditor />*/}
         </div>
