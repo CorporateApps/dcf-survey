@@ -1,4 +1,5 @@
 {
+  "showProgressBar": "top",
   "pages": [
    {
     "elements": [
@@ -51,7 +52,7 @@
       "visibleIf": "{adfunctionallevel} <> 'none'"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -67,7 +68,23 @@
       "visibleIf": "{adfunctionallevel} <> 'none'"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ],
+      "name": "existingndes",
+      "title": "Existing NDES Server",
+      "visibleIf": "{existingca} = 'yes'"
+     },
+     {
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -83,7 +100,7 @@
       "visibleIf": "{adfunctionallevel} <> 'none'"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -99,7 +116,7 @@
       "visibleIf": "{adfunctionallevel} <> 'none'"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -124,7 +141,7 @@
       "name": "question1"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "cloud",
@@ -264,7 +281,7 @@
       "visibleIf": "{androiddevices} > 0"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -281,7 +298,7 @@
       "visibleIf": "{iosdevices} > 0"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -303,7 +320,7 @@
       "name": "question5"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -318,7 +335,7 @@
       "title": "Bring your Own Device"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -333,7 +350,7 @@
       "title": "Corporate Owned, Personally Enabled"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -358,7 +375,7 @@
       "name": "appmanagement"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -375,7 +392,7 @@
       "visibleIf": "{iosdevices} > 0"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -392,7 +409,7 @@
       "visibleIf": "{iosdevices} > 0"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -414,7 +431,7 @@
       "name": "question4"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -431,7 +448,7 @@
       "visibleIf": "{iosdevices} > 0"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -448,7 +465,7 @@
       "visibleIf": "{iosdevices} > 0"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -465,7 +482,7 @@
       "visibleIf": "{iosdevices} > 0"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -492,7 +509,7 @@
       "name": "question6"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -512,7 +529,7 @@
       "name": "question8"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -537,7 +554,7 @@
       "name": "question9"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",
@@ -563,7 +580,7 @@
       "name": "question10"
      },
      {
-      "type": "dropdown",
+      "type": "radiogroup",
       "choices": [
        {
         "value": "yes",

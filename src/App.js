@@ -26,7 +26,7 @@ class App extends Component {
           </div>
         <div className="surveyjs">
           {/*If you want to show survey, uncomment the line below*/}
-          <Survey.Survey model={model} onComplete={sendDataToServer}/>
+          <Survey.Survey model={model} onComplete={sendDataToServer} locale='nl'/>
           {/*If you want to show survey editor, uncomment the line below*/}
           {/*<SurveyEditor />*/}
         </div>
